@@ -22,8 +22,6 @@ SYMBOLS = ['@', '#', '$', '%', '=', ':', '?', '.', '/', '|', '~', '>',
 
 # combines all the character arrays above to form one array
 COMBINED_LIST = DIGITS + UPCASE_CHARACTERS + LOCASE_CHARACTERS + SYMBOLS
-
-
 def get_random_choices():
     # uses random to chose symbols from the lists
     rand_digit = random.choice(DIGITS)

@@ -25,25 +25,32 @@ COMBINED_LIST = DIGITS + UPCASE_CHARACTERS + LOCASE_CHARACTERS + SYMBOLS
 
 
 def get_random_choices():
+    # uses random to chose symbols from the lists
     rand_digit = random.choice(DIGITS)
     rand_upper = random.choice(UPCASE_CHARACTERS)
     rand_lower = random.choice(LOCASE_CHARACTERS)
     rand_symbol = random.choice(SYMBOLS)
+    # generates random password
     temp_pass = rand_digit + rand_upper + rand_lower + rand_symbol
 
+    # returns the password
     return temp_pass
 
 
 def generate_password():
     MAX_LEN = int(input('Enter password length: '))
+    # checks if password length is higher then 3
     while MAX_LEN <= 3:
         print("Length needs to be higher than 3")
         MAX_LEN = int(input('Enter password length: '))
 
+    # calls the get_random_choices function, so we can generate password
     temp_pass = get_random_choices()
+
     for x in range(MAX_LEN - 4):
         temp_pass = temp_pass + random.choice(COMBINED_LIST)
 
+    # shuffles the password
     temp_pass_list = array.array('u', temp_pass)
     random.shuffle(temp_pass_list)
 
